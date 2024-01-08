@@ -45,4 +45,11 @@ class ProjectRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function add(Project $project, bool $true): void
+    {
+        $this->getEntityManager()->persist($project);
+        if ($true) {
+            $this->getEntityManager()->flush();
+        }
+    }
 }
